@@ -3,12 +3,12 @@
         <div class="card-body">
             <div class="form-group col-6">
                 <label>Сабактын аты</label>
-                <input type="text" v-model="name" class="form-control" >
+                <input type="text" v-model="name_of_klass" class="form-control" >
             </div>
         </div>
         <!-- /.card-body -->
                 <div class="card-footer">
-                    <button type="submit" @click.prevent="createLesson()" class="btn btn-primary">Каттоо</button>
+                    <button type="submit" @click.prevent="createKlass()" class="btn btn-primary">Каттоо</button>
                     <button type="submit" @click.prevent="cancelCreate()" class="btn btn-danger">Жокко чыгаруу</button>
                 </div>
     </div>
@@ -22,18 +22,18 @@
         },
         data(){
             return {
-                name:null
+                name_of_klass:null
             }
         },
         mounted() {
         },
         methods:{
-            createLesson(){
-                axios.post('/api/admin/lessons', {name:this.name})
+            createKlass(){
+                axios.post('/api/admin/klasses', {name_of_klass:this.name_of_klass})
                 .then(res => {
-                    this.$parent.getLessons()
+                    this.$parent.getKlasses()
                     this.$parent.Add = false
-                    this.name = null
+                    this.name_of_klass = null
                 })
             },
             cancelCreate(){

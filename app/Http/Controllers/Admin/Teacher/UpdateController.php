@@ -27,6 +27,6 @@ class UpdateController extends Controller
             'lesson_id' => $lesson_id,
         ];
         $teacher->update($data);
-        return redirect()->route('admin.teachers.index');
+        return response([]);
     }
 }

@@ -35,20 +35,20 @@
                         </router-link>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <router-link :to="{name:'admin.klasses'}" class="nav-link">
                             <i class="nav-icon fas fa-school"></i>
                             <p>
                                 Класстар
                             </p>
-                        </a>
+                        </router-link>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <router-link :to="{name:'admin.teachers'}" class="nav-link">
                             <i class="nav-icon fas fa-chalkboard-teacher"></i>
                             <p>
                                 Мугалимдер
                             </p>
-                        </a>
+                        </router-link>
                     </li>
                     <li>
                         <a href="#" class="nav-link">
@@ -81,31 +81,8 @@
 
 <script>
 
-    import MainComponent from "./admin_components/MainComponent";
-    import LessonComponent from "./admin_components/lesson/LessonComponent";
     export default {
-        name:"AdminComponent",
-        components: {
-            LessonComponent,
-            MainComponent
-
-        },
-        data(){
-            return {
-                Lessons:false,
-                Main:true
-            }
-        },
-        methods:{
-            clickLessons(){
-                this.Main = false
-                this.Lessons = true
-            },
-            clickHome(){
-                this.Lessons = false
-                this.Main = true
-            }
-        }
+        name:"AdminComponent"
     }
 </script>
 

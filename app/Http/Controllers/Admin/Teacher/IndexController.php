@@ -11,6 +11,9 @@ class IndexController extends Controller
     public function __invoke()
     {
         $teachers = Teacher::all();
-        return view('admin.teacher.index', compact('teachers'));
+        foreach ($teachers as $teacher){
+            $teacher['user'] = $teacher->user;
+    }
+        return $teachers;
     }
 }

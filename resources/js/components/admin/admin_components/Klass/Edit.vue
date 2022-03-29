@@ -1,5 +1,5 @@
 <template>
-    <div v-if="lesson" class="content-wrapper mt-4">
+    <div v-if="klass" class="content-wrapper mt-4">
         <!-- Main content -->
         <section class="content col-6">
             <div class="container-fluid ">
@@ -9,19 +9,19 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Сабакты өзгөртүү</h3>
+                                <h3 class="card-title">Класстын атын өзгөртүү</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
                                 <div class="card-body">
                                     <div class="form-group col-12">
-                                        <label>Сабактын аты</label>
-                                        <input type="text" v-model="lesson.name" class="form-control" >
+                                        <label>Класстын аты</label>
+                                        <input type="text" v-model="klass.name_of_klass" class="form-control" >
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" @click.prevent="updateLesson()" class="btn btn-primary">Жаңылоо</button>
+                                    <button type="submit" @click.prevent="updateKlass()" class="btn btn-primary">Жаңылоо</button>
                                 </div>
                         </div>
                         <!-- /.card -->
@@ -42,23 +42,23 @@
         },
         data(){
             return {
-                lesson:null
+                klass:null
             }
         },
         mounted() {
-            this.getLesson()
+            this.getKlass()
         },
         methods:{
-            getLesson(){
-                axios.get(`/api/admin/lessons/${this.$route.params.id}`)
+            getKlass(){
+                axios.get(`/api/admin/klasses/${this.$route.params.id}`)
                     .then(res => {
-                        this.lesson = res.data
+                        this.klass = res.data
                     })
             },
-            updateLesson(){
-                axios.patch(`/api/admin/lessons/${this.$route.params.id}`, {name:this.lesson.name})
+            updateKlass(){
+                axios.patch(`/api/admin/klasses/${this.$route.params.id}`, {name_of_klass:this.klass.name_of_klass})
                 .then(res => {
-                    router.push({name:'admin.lesson.show', params:this.lesson.id})
+                    router.push({name:'admin.klass.show', params:this.klass.id})
                 })
             }
         }

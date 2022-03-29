@@ -14,6 +14,6 @@ class StoreController extends Controller
         $data = $request->validated();
         $lesson = Lesson::create($data);
 
-        return $lesson;
+        return response([]);
     }
 }

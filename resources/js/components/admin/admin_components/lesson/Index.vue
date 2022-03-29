@@ -21,7 +21,7 @@
         </div>
         <!-- /.content-header -->
 
-        <CreateComponent :class="Add ? '' : 'd-none'"></CreateComponent>
+        <Create :class="Add ? '' : 'd-none'"></Create>
         <!-- Main content -->
         <section class="content">
 
@@ -58,19 +58,19 @@
                             <td>{{lesson.id}}</td>
                             <td>{{lesson.name}}</td>
                             <td>
-                                <a href="#">
+                                <router-link :to="{name:'admin.lesson.show', params:{id:lesson.id}}">
                                     <i class="far fa-eye"></i>
-                                </a>
+                                </router-link>
                             </td>
                             <td>
-                                <a href="#" class="text-green">
+                                <router-link :to="{name:'admin.lesson.edit', params:{id:lesson.id}}" class="text-green">
                                     <i class="fas fa-edit"></i>
-                                </a>
+                                </router-link>
                             </td>
                             <td>
-                                <button title="submit" class="border-0 bg-transparent">
+                                <router-link :to="{name:'admin.lesson.delete', params:{id:lesson.id}}" class="border-0 bg-transparent">
                                     <i title="submit" class="fas fa-trash text-danger" role="button"></i>
-                                </button>
+                                </router-link>
                             </td>
                         </tr>
                         </tbody>
@@ -86,11 +86,12 @@
 </template>
 
 <script>
-    import CreateComponent from "./CreateComponent";
+    import Create from "./Create";
+    import router from "../../../../router";
     export default {
-        name:"LessonComponent",
+        name:"Index",
         components: {
-            CreateComponent
+            Create
         },
         data(){
             return {
@@ -111,7 +112,8 @@
             clickAdd(){
                 this.Add = true
             }
-        }
+        },
+        router
     }
 </script>
 

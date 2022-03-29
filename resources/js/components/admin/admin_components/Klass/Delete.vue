@@ -9,13 +9,13 @@
         components: {
         },
         mounted() {
-            this.deleteLesson()
+            this.deleteKlass()
         },
         methods:{
-            deleteLesson(){
-                axios.delete(`/api/admin/lessons/${this.$route.params.id}`)
+            deleteKlass(){
+                axios.delete(`/api/admin/klasses/${this.$route.params.id}`)
                 .then(res => {
-                    router.push({name:'admin.lessons'})
+                    router.push({name:'admin.klasses'})
                 })
             }
         }

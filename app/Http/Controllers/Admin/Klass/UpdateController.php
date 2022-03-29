@@ -13,6 +13,6 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $klass->update($data);
-        return redirect()->route('admin.klasses.index');
+        return response([]);
     }
 }

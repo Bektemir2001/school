@@ -34,6 +34,6 @@ class StoreController extends Controller
         ];
         Teacher::create($data);
 
-        return redirect()->route('admin.teachers.index');
+        return $user;
     }
 }

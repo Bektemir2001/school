@@ -14,6 +14,6 @@ class StoreController extends Controller
         $data = $request->validated();
         Klass::create($data);
 
-        return redirect()->route('admin.klasses.index');
+        return response([]);
     }
 }

@@ -11,6 +11,6 @@ class IndexController extends Controller
     public function __invoke()
     {
         $klasses = Klass::all();
-        return view('admin.klass.index', compact('klasses'));
+        return $klasses;
     }
 }

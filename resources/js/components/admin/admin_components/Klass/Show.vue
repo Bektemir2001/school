@@ -1,12 +1,12 @@
 <template>
-    <div v-if="lesson">
+    <div v-if="klass">
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">{{lesson.name}}</h1>
+                            <h1 class="m-0">{{klass.name_of_klass}}</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -23,17 +23,17 @@
         },
         data(){
             return {
-                lesson:null
+                klass:null
             }
         },
         mounted() {
-            this.getLesson()
+            this.getKlass()
         },
         methods:{
-            getLesson(){
-                axios.get(`/api/admin/lessons/${this.$route.params.id}`)
+            getKlass(){
+                axios.get(`/api/admin/klasses/${this.$route.params.id}`)
                 .then(res => {
-                    this.lesson = res.data
+                    this.klass = res.data
                 })
             }
         }

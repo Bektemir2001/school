@@ -11,6 +11,6 @@ class DeleteController extends Controller
     public function __invoke(Lesson $lesson)
     {
         $lesson->delete();
-        return redirect()->route('admin.lessons.index');
+        return response([]);
     }
 }

@@ -16,6 +16,6 @@ class DeleteController extends Controller
         $teacher->delete();
         $user->delete();
 
-        return redirect()->route('admin.teachers.index');
+        return response([]);
     }
 }
