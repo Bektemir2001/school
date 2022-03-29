@@ -13,6 +13,6 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $lesson->update($data);
-        return redirect()->route('admin.lessons.index');
+        return response([]);
     }
 }
