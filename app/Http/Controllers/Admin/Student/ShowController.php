@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin\Teacher;
 
 use App\Http\Controllers\Controller;
-use App\Models\Lesson;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
-class EditController extends Controller
+class ShowController extends Controller
 {
     public function __invoke(Teacher $teacher)
     {
-        $lessons = Lesson::all();
-        return view('admin.teacher.edit', compact('teacher', 'lessons'));
+        $teacher['user'] = $teacher->user;
+        $teacher['lesson'] = $teacher->lesson;
+        return $teacher;
     }
 }
