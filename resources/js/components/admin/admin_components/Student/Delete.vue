@@ -13,9 +13,9 @@
         },
         methods:{
             deleteTeacher(){
-                axios.delete(`/api/admin/teachers/${this.$route.params.id}`)
+                axios.delete(`/api/admin/students/${this.$route.params.id}`)
                 .then(res => {
-                    router.push({name:'admin.teachers'})
+                    router.push({name:'admin.students'})
                 })
             }
         }

@@ -29,7 +29,7 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required|string',
             'surename' => 'required|string',
-            'email' => 'email:rfc,dns',
+            'email' => 'required|string|email',
             'lesson_id' => 'required|integer'
         ];
     }

@@ -1,32 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Teacher;
+namespace App\Http\Controllers\Admin\Student;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Teacher\UpdateRequest;
-use App\Models\Teacher;
-use App\Models\User;
+use App\Http\Controllers\Admin\Student\BaseController;
+use App\Http\Requests\Admin\Student\UpdateRequest;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
-    public function __invoke(UpdateRequest $request, Teacher $teacher)
+    public function __invoke(UpdateRequest $request, Student $student)
     {
         $data = $request->validated();
-        $user = [
-            'name' => $data['name'],
-            'surename' => $data['surename'],
-            'role' => 1,
-            'email'=>$data['email'],
-        ];
+        $this->service->update($data, $student);
 
-        $lesson_id = $data['lesson_id'];
-        unset($data);
-        $user = $teacher->user()->update($user);
-        $data = [
-            'lesson_id' => $lesson_id,
-        ];
-        $teacher->update($data);
         return response([]);
     }
 }

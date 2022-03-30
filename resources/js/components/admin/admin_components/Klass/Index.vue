@@ -55,7 +55,7 @@
                         <tbody>
                         <tr v-for="klass in klasses">
                             <td>{{klass.id}}</td>
-                            <td>{{klass.name_of_klass}}</td>
+                            <td>{{klass.name}}</td>
                             <td>
                                 <router-link :to="{name:'admin.klass.show', params:{id:klass.id}}">
                                     <i class="far fa-eye"></i>

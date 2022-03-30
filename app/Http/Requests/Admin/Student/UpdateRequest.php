@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Teacher;
+namespace App\Http\Requests\Admin\Student;
 
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
@@ -29,8 +29,8 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required|string',
             'surename' => 'required|string',
-            'email' => 'email:rfc,dns',
-            'lesson_id' => 'required|integer'
+            'email' => 'required|string|email',
+            'klass_id' => 'required|integer'
         ];
     }
 }

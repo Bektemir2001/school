@@ -99,18 +99,18 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      teachers: null
+      students: null
     };
   },
   mounted: function mounted() {
-    this.getTeachers();
+    this.getStudents();
   },
   methods: {
-    getTeachers: function getTeachers() {
+    getStudents: function getStudents() {
       var _this = this;
 
-      axios.get('/api/admin/teachers').then(function (res) {
-        _this.teachers = res.data;
+      axios.get('/api/admin/students').then(function (res) {
+        _this.students = res.data;
       });
     }
   },
@@ -217,10 +217,10 @@ var render = function () {
           [
             _c(
               "router-link",
-              { attrs: { to: { name: "admin.teacher.create" } } },
+              { attrs: { to: { name: "admin.student.create" } } },
               [
                 _c("h5", { staticClass: "text-green" }, [
-                  _vm._v("Мугалим кошуу"),
+                  _vm._v("Окуучу кошуу"),
                 ]),
               ]
             ),
@@ -232,7 +232,7 @@ var render = function () {
       _c("div", { staticClass: "card mt-4" }, [
         _vm._m(1),
         _vm._v(" "),
-        _vm.teachers
+        _vm.students
           ? _c(
               "div",
               {
@@ -248,15 +248,15 @@ var render = function () {
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.teachers, function (teacher) {
+                      _vm._l(_vm.students, function (student) {
                         return _c("tr", [
-                          _c("td", [_vm._v(_vm._s(teacher.id))]),
+                          _c("td", [_vm._v(_vm._s(student.id))]),
                           _vm._v(" "),
                           _c("td", [
                             _vm._v(
-                              _vm._s(teacher.user.name) +
+                              _vm._s(student.user.name) +
                                 " " +
-                                _vm._s(teacher.user.surename)
+                                _vm._s(student.user.surename)
                             ),
                           ]),
                           _vm._v(" "),
@@ -268,8 +268,8 @@ var render = function () {
                                 {
                                   attrs: {
                                     to: {
-                                      name: "admin.teacher.show",
-                                      params: { id: teacher.id },
+                                      name: "admin.student.show",
+                                      params: { id: student.id },
                                     },
                                   },
                                 },
@@ -288,8 +288,8 @@ var render = function () {
                                   staticClass: "text-green",
                                   attrs: {
                                     to: {
-                                      name: "admin.teacher.edit",
-                                      params: { id: teacher.id },
+                                      name: "admin.student.edit",
+                                      params: { id: student.id },
                                     },
                                   },
                                 },
@@ -308,8 +308,8 @@ var render = function () {
                                   staticClass: "border-0 bg-transparent",
                                   attrs: {
                                     to: {
-                                      name: "admin.teacher.delete",
-                                      params: { id: teacher.id },
+                                      name: "admin.student.delete",
+                                      params: { id: student.id },
                                     },
                                   },
                                 },
@@ -345,7 +345,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "container-fluid" }, [
         _c("div", { staticClass: "row mb-2" }, [
           _c("div", { staticClass: "col-sm-6" }, [
-            _c("h1", { staticClass: "m-0" }, [_vm._v("Мугалимдер")]),
+            _c("h1", { staticClass: "m-0" }, [_vm._v("Окуучулар")]),
           ]),
         ]),
       ]),
@@ -356,9 +356,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [
-        _vm._v("Мугалимдердин тизмеси"),
-      ]),
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Окуучулардын тизмеси")]),
       _vm._v(" "),
       _c("div", { staticClass: "card-tools" }, [
         _c(

@@ -72,41 +72,41 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      teacher: null,
-      lessons: null
+      student: null,
+      klasses: null
     };
   },
   mounted: function mounted() {
-    this.getTeacher();
-    this.getLessons();
+    this.getStudent();
+    this.getKlasses();
   },
   methods: {
-    getTeacher: function getTeacher() {
+    getStudent: function getStudent() {
       var _this = this;
 
-      axios.get("/api/admin/teachers/".concat(this.$route.params.id)).then(function (res) {
-        _this.teacher = res.data;
+      axios.get("/api/admin/students/".concat(this.$route.params.id)).then(function (res) {
+        _this.student = res.data;
       });
     },
-    getLessons: function getLessons() {
+    getKlasses: function getKlasses() {
       var _this2 = this;
 
-      axios.get('/api/admin/lessons/').then(function (res) {
-        _this2.lessons = res.data;
+      axios.get('/api/admin/klasses/').then(function (res) {
+        _this2.klasses = res.data;
       });
     },
-    updateTeacher: function updateTeacher() {
+    updateStudent: function updateStudent() {
       var _this3 = this;
 
-      axios.patch("/api/admin/teachers/".concat(this.$route.params.id, "/update"), {
-        name: this.teacher.user.name,
-        surename: this.teacher.user.surename,
-        email: this.teacher.user.email,
-        lesson_id: this.teacher.lesson_id
+      axios.patch("/api/admin/students/".concat(this.$route.params.id, "/update"), {
+        name: this.student.user.name,
+        surename: this.student.user.surename,
+        email: this.student.user.email,
+        klass_id: this.student.klass_id
       }).then(function (res) {
         _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
-          name: 'admin.teacher.show',
-          params: _this3.teacher.id
+          name: 'admin.student.show',
+          params: _this3.student.id
         });
       });
     }
@@ -199,7 +199,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.teacher && _vm.lessons
+  return _vm.student && _vm.klasses
     ? _c("div", { staticClass: "content-wrapper mt-4" }, [
         _c("section", { staticClass: "content col-6" }, [
           _c("div", { staticClass: "container-fluid " }, [
@@ -217,20 +217,20 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.teacher.user.name,
-                            expression: "teacher.user.name",
+                            value: _vm.student.user.name,
+                            expression: "student.user.name",
                           },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text" },
-                        domProps: { value: _vm.teacher.user.name },
+                        domProps: { value: _vm.student.user.name },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.teacher.user,
+                              _vm.student.user,
                               "name",
                               $event.target.value
                             )
@@ -249,20 +249,20 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.teacher.user.surename,
-                            expression: "teacher.user.surename",
+                            value: _vm.student.user.surename,
+                            expression: "student.user.surename",
                           },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text" },
-                        domProps: { value: _vm.teacher.user.surename },
+                        domProps: { value: _vm.student.user.surename },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.teacher.user,
+                              _vm.student.user,
                               "surename",
                               $event.target.value
                             )
@@ -281,8 +281,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.teacher.user.email,
-                            expression: "teacher.user.email",
+                            value: _vm.student.user.email,
+                            expression: "student.user.email",
                           },
                         ],
                         staticClass: "form-control",
@@ -291,14 +291,14 @@ var render = function () {
                           id: "exampleInputEmail1",
                           placeholder: "email",
                         },
-                        domProps: { value: _vm.teacher.user.email },
+                        domProps: { value: _vm.student.user.email },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
                             _vm.$set(
-                              _vm.teacher.user,
+                              _vm.student.user,
                               "email",
                               $event.target.value
                             )
@@ -309,7 +309,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12" }, [
                       _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Берген сабагы"),
+                        _vm._v("Кайсы класста окуйт"),
                       ]),
                       _vm._v(" "),
                       _c(
@@ -319,8 +319,8 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.teacher.lesson_id,
-                              expression: "teacher.lesson_id",
+                              value: _vm.student.klass_id,
+                              expression: "student.klass_id",
                             },
                           ],
                           staticClass: "form-control",
@@ -335,8 +335,8 @@ var render = function () {
                                   return val
                                 })
                               _vm.$set(
-                                _vm.teacher,
-                                "lesson_id",
+                                _vm.student,
+                                "klass_id",
                                 $event.target.multiple
                                   ? $$selectedVal
                                   : $$selectedVal[0]
@@ -344,11 +344,11 @@ var render = function () {
                             },
                           },
                         },
-                        _vm._l(_vm.lessons, function (lesson) {
+                        _vm._l(_vm.klasses, function (klass) {
                           return _c(
                             "option",
-                            { domProps: { value: lesson.id } },
-                            [_vm._v(_vm._s(lesson.name))]
+                            { domProps: { value: klass.id } },
+                            [_vm._v(_vm._s(klass.name))]
                           )
                         }),
                         0
@@ -365,7 +365,7 @@ var render = function () {
                         on: {
                           click: function ($event) {
                             $event.preventDefault()
-                            return _vm.updateTeacher()
+                            return _vm.updateStudent()
                           },
                         },
                       },
@@ -386,7 +386,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Мугалим кошуу")]),
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("Окуучунун маалыматтарын жанылоо"),
+      ]),
     ])
   },
 ]

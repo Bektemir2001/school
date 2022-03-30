@@ -8,7 +8,7 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Мугалим кошуу</h3>
+                                <h3 class="card-title">Окуучу кошуу</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -26,15 +26,15 @@
                                         <input type="email" v-model="email" class="form-control" id="exampleInputEmail1" placeholder="email" >
                                     </div>
                                     <div class="form-group col-12">
-                                        <label for="exampleInputEmail1">Берген сабагы</label>
-                                        <select class="form-control" v-model="lesson_id">
-                                            <option v-for="lesson in lessons" :value="lesson.id">{{ lesson.name }}</option>
+                                        <label for="exampleInputEmail1">Кайсы класста окуйт</label>
+                                        <select class="form-control" v-model="klass_id">
+                                            <option v-for="klass in klasses" :value="klass.id">{{ klass.name }}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" @click.prevent="createTeacher()" class="btn btn-primary">Каттоо</button>
+                                    <button type="submit" @click.prevent="createStudent()" class="btn btn-primary">Каттоо</button>
                                 </div>
                         </div>
                         <!-- /.card -->
@@ -54,28 +54,28 @@
         },
         data(){
             return {
-                lessons:null,
+                klasses:null,
                 name:null,
                 surename:null,
                 email:null,
-                lesson_id:null
+                klass_id:null
             }
         },
         mounted() {
-            this.getLesson()
+            this.getKlasses()
         },
         methods:{
-            createTeacher(){
-                axios.post('/api/admin/teachers', {name:this.name, surename:this.surename,
-                email:this.email, lesson_id:this.lesson_id})
+            createStudent(){
+                axios.post('/api/admin/students', {name:this.name, surename:this.surename,
+                email:this.email, klass_id:this.klass_id})
                 .then(res => {
-                    router.push({name:'admin.teachers'})
+                    router.push({name:'admin.students'})
                 })
             },
-            getLesson(){
-                axios.get('/api/admin/lessons')
+            getKlasses(){
+                axios.get('/api/admin/klasses')
                 .then(res => {
-                    this.lessons = res.data
+                    this.klasses = res.data
                 })
             },
         },

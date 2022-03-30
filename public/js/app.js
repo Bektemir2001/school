@@ -5440,7 +5440,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
       return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_MainComponent_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/MainComponent */ "./resources/js/components/admin/admin_components/MainComponent.vue"));
     },
     name: 'admin.main'
-  }, //Lessons route
+  }, //Lessons routes
   {
     path: '/admin/lesson',
     component: function component() {
@@ -5465,7 +5465,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
       return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_lesson_Delete_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/lesson/Delete */ "./resources/js/components/admin/admin_components/lesson/Delete.vue"));
     },
     name: 'admin.lesson.delete'
-  }, //Klasses route
+  }, //Klasses routes
   {
     path: '/admin/klasses',
     component: function component() {
@@ -5490,7 +5490,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
       return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Klass_Delete_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Klass/Delete */ "./resources/js/components/admin/admin_components/Klass/Delete.vue"));
     },
     name: 'admin.klass.delete'
-  }, //    Teachers route
+  }, //    Teachers routes
   {
     path: '/admin/teachers',
     component: function component() {
@@ -5521,6 +5521,37 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
       return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Teacher_Delete_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Teacher/Delete */ "./resources/js/components/admin/admin_components/Teacher/Delete.vue"));
     },
     name: 'admin.teacher.delete'
+  }, //    Students routes
+  {
+    path: '/admin/students',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Student_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Student/Index */ "./resources/js/components/admin/admin_components/Student/Index.vue"));
+    },
+    name: 'admin.students'
+  }, {
+    path: '/admin/student/create',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Student_Create_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Student/Create */ "./resources/js/components/admin/admin_components/Student/Create.vue"));
+    },
+    name: 'admin.student.create'
+  }, {
+    path: '/admin/student/:id',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Student_Show_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Student/Show */ "./resources/js/components/admin/admin_components/Student/Show.vue"));
+    },
+    name: 'admin.student.show'
+  }, {
+    path: '/admin/student/:id/edit',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Student_Edit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Student/Edit */ "./resources/js/components/admin/admin_components/Student/Edit.vue"));
+    },
+    name: 'admin.student.edit'
+  }, {
+    path: '/admin/student/:id/delete',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Student_Delete_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Student/Delete */ "./resources/js/components/admin/admin_components/Student/Delete.vue"));
+    },
+    name: 'admin.student.delete'
   }]
 }));
 
@@ -28180,9 +28211,32 @@ var render = function () {
                     1
                   ),
                   _vm._v(" "),
-                  _vm._m(2),
+                  _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "admin.students" } },
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "nav-icon fas fa-user-graduate",
+                          }),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "\n                            Окуучулар\n                        "
+                            ),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _vm._m(3),
+                  _vm._m(2),
                 ]
               ),
             ]),
@@ -28214,22 +28268,6 @@ var staticRenderFns = [
       _c("div", { staticClass: "info" }, [
         _c("a", { staticClass: "d-block", attrs: { href: "#" } }, [
           _vm._v("Бектемир Кумарбай уулу"),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "nav-icon fas fa-user-graduate" }),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n                            Окуучулар\n                        "
-          ),
         ]),
       ]),
     ])
@@ -43687,7 +43725,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_admin_admin_components_MainComponent_vue":1,"resources_js_components_admin_admin_components_lesson_Index_vue":1,"resources_js_components_admin_admin_components_lesson_Show_vue":1,"resources_js_components_admin_admin_components_lesson_Edit_vue":1,"resources_js_components_admin_admin_components_lesson_Delete_vue":1,"resources_js_components_admin_admin_components_Klass_Index_vue":1,"resources_js_components_admin_admin_components_Klass_Show_vue":1,"resources_js_components_admin_admin_components_Klass_Edit_vue":1,"resources_js_components_admin_admin_components_Klass_Delete_vue":1,"resources_js_components_admin_admin_components_Teacher_Index_vue":1,"resources_js_components_admin_admin_components_Teacher_Create_vue":1,"resources_js_components_admin_admin_components_Teacher_Show_vue":1,"resources_js_components_admin_admin_components_Teacher_Edit_vue":1,"resources_js_components_admin_admin_components_Teacher_Delete_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_admin_admin_components_MainComponent_vue":1,"resources_js_components_admin_admin_components_lesson_Index_vue":1,"resources_js_components_admin_admin_components_lesson_Show_vue":1,"resources_js_components_admin_admin_components_lesson_Edit_vue":1,"resources_js_components_admin_admin_components_lesson_Delete_vue":1,"resources_js_components_admin_admin_components_Klass_Index_vue":1,"resources_js_components_admin_admin_components_Klass_Show_vue":1,"resources_js_components_admin_admin_components_Klass_Edit_vue":1,"resources_js_components_admin_admin_components_Klass_Delete_vue":1,"resources_js_components_admin_admin_components_Teacher_Index_vue":1,"resources_js_components_admin_admin_components_Teacher_Create_vue":1,"resources_js_components_admin_admin_components_Teacher_Show_vue":1,"resources_js_components_admin_admin_components_Teacher_Edit_vue":1,"resources_js_components_admin_admin_components_Teacher_Delete_vue":1,"resources_js_components_admin_admin_components_Student_Index_vue":1,"resources_js_components_admin_admin_components_Student_Create_vue":1,"resources_js_components_admin_admin_components_Student_Show_vue":1,"resources_js_components_admin_admin_components_Student_Edit_vue":1,"resources_js_components_admin_admin_components_Student_Delete_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

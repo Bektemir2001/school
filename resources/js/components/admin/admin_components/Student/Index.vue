@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Мугалимдер</h1>
+                        <h1 class="m-0">Окуучулар</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -16,14 +16,14 @@
         <section class="content">
             <div class="col-6">
                 <button type="button" class="btn btn-block btn-outline-secondary btn-xs">
-                    <router-link :to="{name:'admin.teacher.create'}"><h5 class="text-green">Мугалим кошуу</h5></router-link>
+                    <router-link :to="{name:'admin.student.create'}"><h5 class="text-green">Окуучу кошуу</h5></router-link>
                 </button>
             </div>
 
 
             <div class="card mt-4">
                 <div class="card-header">
-                    <h3 class="card-title">Мугалимдердин тизмеси</h3>
+                    <h3 class="card-title">Окуучулардын тизмеси</h3>
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <!-- /.card-header -->
-                <div v-if="teachers" class="card-body table-responsive p-0" style="height: 300px;">
+                <div v-if="students" class="card-body table-responsive p-0" style="height: 300px;">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
                         <tr>
@@ -50,21 +50,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="teacher in teachers">
-                            <td>{{teacher.id}}</td>
-                            <td>{{teacher.user.name}} {{teacher.user.surename}}</td>
+                        <tr v-for="student in students">
+                            <td>{{student.id}}</td>
+                            <td>{{student.user.name}} {{student.user.surename}}</td>
                             <td>
-                                <router-link :to="{name:'admin.teacher.show', params:{id:teacher.id}}">
+                                <router-link :to="{name:'admin.student.show', params:{id:student.id}}">
                                     <i class="far fa-eye"></i>
                                 </router-link>
                             </td>
                             <td>
-                                <router-link :to="{name:'admin.teacher.edit', params:{id:teacher.id}}" class="text-green">
+                                <router-link :to="{name:'admin.student.edit', params:{id:student.id}}" class="text-green">
                                     <i class="fas fa-edit"></i>
                                 </router-link>
                             </td>
                             <td>
-                                    <router-link :to="{name:'admin.teacher.delete', params:{id:teacher.id}}" class="border-0 bg-transparent">
+                                    <router-link :to="{name:'admin.student.delete', params:{id:student.id}}" class="border-0 bg-transparent">
                                         <i title="submit" class="fas fa-trash text-danger" role="button"></i>
                                     </router-link>
                             </td>
@@ -87,18 +87,18 @@
         },
         data(){
             return {
-                teachers:null,
+                students:null,
             }
         },
         mounted() {
-            this.getTeachers()
+            this.getStudents()
 
         },
         methods:{
-            getTeachers(){
-                axios.get('/api/admin/teachers')
+            getStudents(){
+                axios.get('/api/admin/students')
                     .then(res =>{
-                        this.teachers = res.data
+                        this.students = res.data
                     })
             },
         },

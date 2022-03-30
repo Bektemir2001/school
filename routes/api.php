@@ -44,4 +44,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
         Route::patch('/{teacher}/update', 'UpdateController');
         Route::delete('/{teacher}', 'DeleteController');
     });
+    Route::group(['namespace' => 'Student', 'prefix' => 'students'], function (){
+        Route::get('/', 'IndexController');
+        Route::post('/', 'StoreController');
+        Route::get('/{student}', 'ShowController');
+        Route::patch('/{student}/update', 'UpdateController');
+        Route::delete('/{student}', 'DeleteController');
+    });
 });

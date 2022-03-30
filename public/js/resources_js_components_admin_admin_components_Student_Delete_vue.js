@@ -25,9 +25,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     deleteTeacher: function deleteTeacher() {
-      axios["delete"]("/api/admin/teachers/".concat(this.$route.params.id)).then(function (res) {
+      axios["delete"]("/api/admin/students/".concat(this.$route.params.id)).then(function (res) {
         _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
-          name: 'admin.teachers'
+          name: 'admin.students'
         });
       });
     }

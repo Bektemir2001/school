@@ -20,16 +20,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Delete",
   components: {},
-  data: function data() {
-    return {
-      lesson: null
-    };
-  },
   mounted: function mounted() {
-    this.deleteKlass();
+    this.deleteTeacher();
   },
   methods: {
-    deleteKlass: function deleteKlass() {
+    deleteTeacher: function deleteTeacher() {
       axios["delete"]("/api/admin/teachers/".concat(this.$route.params.id)).then(function (res) {
         _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
           name: 'admin.teachers'

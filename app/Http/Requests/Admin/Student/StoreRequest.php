@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Teacher;
+namespace App\Http\Requests\Admin\Student;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             'name' => 'required|string',
             'surename' => 'required|string',
             'email'=>'required|string|email',
-            'lesson_id' => 'required|integer'
+            'klass_id' => 'required|integer'
         ];
     }
 }

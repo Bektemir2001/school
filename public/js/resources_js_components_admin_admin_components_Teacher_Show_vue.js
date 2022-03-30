@@ -34,6 +34,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Show",
   components: {},
@@ -174,6 +178,21 @@ var render = function () {
                 _c("td", [_vm._v("Кайсы предметтен сабак берет: ")]),
                 _vm._v(" "),
                 _c("td", [_c("b", [_vm._v(_vm._s(_vm.teacher.lesson.name))])]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "tr",
+              {
+                attrs: {
+                  "data-widget": "expandable-table",
+                  "aria-expanded": "true",
+                },
+              },
+              [
+                _c("td", [_vm._v("парол: ")]),
+                _vm._v(" "),
+                _c("td", [_c("b", [_vm._v(_vm._s(_vm.teacher.password))])]),
               ]
             ),
           ]),

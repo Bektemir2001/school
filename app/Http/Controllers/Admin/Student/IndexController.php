@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Teacher;
+namespace App\Http\Controllers\Admin\Student;
 
-use App\Http\Controllers\Controller;
-use App\Models\Teacher;
+use App\Http\Controllers\Admin\Student\BaseController;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function __invoke()
     {
-        $teachers = Teacher::all();
-        foreach ($teachers as $teacher){
-            $teacher['user'] = $teacher->user;
-    }
-        return $teachers;
+        $students = Student::all();
+        foreach ($students as $student){
+            $student['user'] = $student->user;
+        }
+        return $students;
     }
 }

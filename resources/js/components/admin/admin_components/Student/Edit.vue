@@ -1,5 +1,5 @@
 <template>
-    <div v-if="teacher && lessons" class="content-wrapper mt-4">
+    <div v-if="student && klasses" class="content-wrapper mt-4">
         <!-- Main content -->
         <section class="content col-6">
             <div class="container-fluid ">
@@ -9,37 +9,37 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Мугалим кошуу</h3>
+                                <h3 class="card-title">Окуучунун маалыматтарын жанылоо</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
                                 <div class="card-body">
                                     <div class="form-group col-12">
                                         <label>Аты</label>
-                                        <input type="text" v-model="teacher.user.name" class="form-control">
+                                        <input type="text" v-model="student.user.name" class="form-control">
                                         <div class="text-danger">
                                         </div>
                                     </div>
                                     <div class="form-group col-12">
                                         <label>Фамилясы</label>
-                                        <input type="text" v-model="teacher.user.surename" class="form-control" >
+                                        <input type="text" v-model="student.user.surename" class="form-control" >
                                     </div>
                                     <div class="form-group col-12">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" v-model="teacher.user.email" class="form-control" id="exampleInputEmail1" placeholder="email">
+                                        <input type="email" v-model="student.user.email" class="form-control" id="exampleInputEmail1" placeholder="email">
                                     </div>
                                     <div class="form-group col-12">
-                                        <label for="exampleInputEmail1">Берген сабагы</label>
-                                        <select class="form-control" v-model="teacher.lesson_id">
+                                        <label for="exampleInputEmail1">Кайсы класста окуйт</label>
+                                        <select class="form-control" v-model="student.klass_id">
                                             <option
-                                                v-for="lesson in lessons"
-                                                :value="lesson.id">{{ lesson.name  }}</option>
+                                                v-for="klass in klasses"
+                                                :value="klass.id">{{ klass.name  }}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" @click.prevent="updateTeacher()" class="btn btn-primary">Каттоо</button>
+                                    <button type="submit" @click.prevent="updateStudent()" class="btn btn-primary">Каттоо</button>
                                 </div>
                         </div>
                         <!-- /.card -->
@@ -60,32 +60,32 @@
         },
         data(){
             return {
-                teacher:null,
-                lessons:null
+                student:null,
+                klasses:null
             }
         },
         mounted() {
-            this.getTeacher()
-            this.getLessons()
+            this.getStudent()
+            this.getKlasses()
         },
         methods:{
-            getTeacher(){
-                axios.get(`/api/admin/teachers/${this.$route.params.id}`)
+            getStudent(){
+                axios.get(`/api/admin/students/${this.$route.params.id}`)
                     .then(res => {
-                        this.teacher = res.data
+                        this.student = res.data
                     })
             },
-            getLessons(){
-                axios.get('/api/admin/lessons/')
+            getKlasses(){
+                axios.get('/api/admin/klasses/')
                     .then(res => {
-                        this.lessons = res.data
+                        this.klasses = res.data
                     })
             },
-            updateTeacher(){
-                axios.patch(`/api/admin/teachers/${this.$route.params.id}/update`, {name:this.teacher.user.name,
-                surename:this.teacher.user.surename, email:this.teacher.user.email, lesson_id:this.teacher.lesson_id})
+            updateStudent(){
+                axios.patch(`/api/admin/students/${this.$route.params.id}/update`, {name:this.student.user.name,
+                surename:this.student.user.surename, email:this.student.user.email, klass_id:this.student.klass_id})
                 .then(res => {
-                    router.push({name:'admin.teacher.show', params:this.teacher.id})
+                    router.push({name:'admin.student.show', params:this.student.id})
                 })
             }
         }

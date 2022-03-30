@@ -17,6 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('klass_id');
+            $table->string('password');
             $table->timestamps();
 
             $table->index('user_id', 'user_idx');

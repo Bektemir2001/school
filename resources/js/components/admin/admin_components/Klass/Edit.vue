@@ -16,7 +16,7 @@
                                 <div class="card-body">
                                     <div class="form-group col-12">
                                         <label>Класстын аты</label>
-                                        <input type="text" v-model="klass.name_of_klass" class="form-control" >
+                                        <input type="text" v-model="klass.name" class="form-control" >
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -56,7 +56,7 @@
                     })
             },
             updateKlass(){
-                axios.patch(`/api/admin/klasses/${this.$route.params.id}`, {name_of_klass:this.klass.name_of_klass})
+                axios.patch(`/api/admin/klasses/${this.$route.params.id}`, {name:this.klass.name})
                 .then(res => {
                     router.push({name:'admin.klass.show', params:this.klass.id})
                 })

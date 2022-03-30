@@ -16,6 +16,10 @@
                     <td>Кайсы предметтен сабак берет: </td>
                     <td><b>{{teacher.lesson.name}}</b></td>
                 </tr>
+                <tr data-widget="expandable-table" aria-expanded="true">
+                    <td>парол: </td>
+                    <td><b>{{teacher.password}}</b></td>
+                </tr>
             </table>
         </div>
     </div>

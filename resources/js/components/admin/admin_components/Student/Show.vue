@@ -1,11 +1,11 @@
 <template>
-    <div v-if="teacher" class="content-wrapper">
+    <div v-if="student" class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">{{teacher.user.name}} {{teacher.user.surename}}</h1>
+                        <h1 class="m-0">{{student.user.name}} {{student.user.surename}}</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -13,12 +13,12 @@
         <div class="col-6">
             <table class="table table-bordered table-hover">
                 <tr data-widget="expandable-table" aria-expanded="true">
-                    <td>Кайсы предметтен сабак берет: </td>
-                    <td><b>{{teacher.lesson.name}}</b></td>
+                    <td>Канчанчы класс: </td>
+                    <td><b>{{student.klass.name}}</b></td>
                 </tr>
                 <tr data-widget="expandable-table" aria-expanded="true">
                     <td>парол: </td>
-                    <td><b>{{teacher.password}}</b></td>
+                    <td><b>{{student.password}}</b></td>
                 </tr>
             </table>
         </div>
@@ -33,17 +33,17 @@
         },
         data(){
             return {
-                teacher:null
+                student:null
             }
         },
         mounted() {
-            this.getTeacher()
+            this.getStudent()
         },
         methods:{
-            getTeacher(){
-                axios.get(`/api/admin/teachers/${this.$route.params.id}`)
+            getStudent(){
+                axios.get(`/api/admin/students/${this.$route.params.id}`)
                 .then(res => {
-                    this.teacher = res.data
+                    this.student = res.data
                 })
             }
         }

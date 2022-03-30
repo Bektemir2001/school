@@ -11,7 +11,7 @@ export default new VueRouter({
             component: () => import('./components/admin/admin_components/MainComponent'),
             name:'admin.main'
         },
-        //Lessons route
+        //Lessons routes
         {
             path:'/admin/lesson',
             component: () => import('./components/admin/admin_components/lesson/Index'),
@@ -33,7 +33,7 @@ export default new VueRouter({
             name:'admin.lesson.delete'
         },
 
-        //Klasses route
+        //Klasses routes
 
         {
             path:'/admin/klasses',
@@ -56,7 +56,7 @@ export default new VueRouter({
             name:'admin.klass.delete'
         },
 
-    //    Teachers route
+    //    Teachers routes
 
         {
             path:'/admin/teachers',
@@ -82,6 +82,32 @@ export default new VueRouter({
             path:'/admin/teacher/:id/delete',
             component: () => import('./components/admin/admin_components/Teacher/Delete'),
             name:'admin.teacher.delete'
-        }
+        },
+    //    Students routes
+        {
+            path:'/admin/students',
+            component: () => import('./components/admin/admin_components/Student/Index'),
+            name:'admin.students'
+        },
+        {
+            path:'/admin/student/create',
+            component: () => import('./components/admin/admin_components/Student/Create'),
+            name:'admin.student.create'
+        },
+        {
+            path:'/admin/student/:id',
+            component: () => import('./components/admin/admin_components/Student/Show'),
+            name:'admin.student.show'
+        },
+        {
+            path:'/admin/student/:id/edit',
+            component: () => import('./components/admin/admin_components/Student/Edit'),
+            name:'admin.student.edit'
+        },
+        {
+            path:'/admin/student/:id/delete',
+            component: () => import('./components/admin/admin_components/Student/Delete'),
+            name:'admin.student.delete'
+        },
     ]
 })

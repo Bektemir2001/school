@@ -8,16 +8,11 @@
         name:"Delete",
         components: {
         },
-        data(){
-            return {
-                lesson:null
-            }
-        },
         mounted() {
-            this.deleteKlass()
+            this.deleteTeacher()
         },
         methods:{
-            deleteKlass(){
+            deleteTeacher(){
                 axios.delete(`/api/admin/teachers/${this.$route.params.id}`)
                 .then(res => {
                     router.push({name:'admin.teachers'})

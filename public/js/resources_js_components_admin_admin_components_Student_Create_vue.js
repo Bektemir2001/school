@@ -66,34 +66,34 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      lessons: null,
+      klasses: null,
       name: null,
       surename: null,
       email: null,
-      lesson_id: null
+      klass_id: null
     };
   },
   mounted: function mounted() {
-    this.getLesson();
+    this.getKlasses();
   },
   methods: {
-    createTeacher: function createTeacher() {
-      axios.post('/api/admin/teachers', {
+    createStudent: function createStudent() {
+      axios.post('/api/admin/students', {
         name: this.name,
         surename: this.surename,
         email: this.email,
-        lesson_id: this.lesson_id
+        klass_id: this.klass_id
       }).then(function (res) {
         _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
-          name: 'admin.teachers'
+          name: 'admin.students'
         });
       });
     },
-    getLesson: function getLesson() {
+    getKlasses: function getKlasses() {
       var _this = this;
 
-      axios.get('/api/admin/lessons').then(function (res) {
-        _this.lessons = res.data;
+      axios.get('/api/admin/klasses').then(function (res) {
+        _this.klasses = res.data;
       });
     }
   }
@@ -329,7 +329,7 @@ var render = function () {
                   on: {
                     click: function ($event) {
                       $event.preventDefault()
-                      return _vm.createTeacher()
+                      return _vm.createStudent()
                     },
                   },
                 },

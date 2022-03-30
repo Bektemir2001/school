@@ -72,7 +72,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.patch("/api/admin/klasses/".concat(this.$route.params.id), {
-        name_of_klass: this.klass.name_of_klass
+        name: this.klass.name
       }).then(function (res) {
         _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
           name: 'admin.klass.show',
@@ -187,23 +187,19 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.klass.name_of_klass,
-                            expression: "klass.name_of_klass",
+                            value: _vm.klass.name,
+                            expression: "klass.name",
                           },
                         ],
                         staticClass: "form-control",
                         attrs: { type: "text" },
-                        domProps: { value: _vm.klass.name_of_klass },
+                        domProps: { value: _vm.klass.name },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.klass,
-                              "name_of_klass",
-                              $event.target.value
-                            )
+                            _vm.$set(_vm.klass, "name", $event.target.value)
                           },
                         },
                       }),

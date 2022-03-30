@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Teacher;
+namespace App\Http\Controllers\Admin\Student;
 
-use App\Http\Controllers\Controller;
-use App\Models\Teacher;
+use App\Http\Controllers\Admin\Student\BaseController;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
-class ShowController extends Controller
+class ShowController extends BaseController
 {
-    public function __invoke(Teacher $teacher)
+    public function __invoke(Student $student)
     {
-        $teacher['user'] = $teacher->user;
-        $teacher['lesson'] = $teacher->lesson;
-        return $teacher;
+        $student['user'] = $student->user;
+        $student['klass'] = $student->klass;
+        return $student;
     }
 }

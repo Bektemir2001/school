@@ -144,7 +144,7 @@ var render = function () {
               _c("div", { staticClass: "row mb-2" }, [
                 _c("div", { staticClass: "col-sm-6" }, [
                   _c("h1", { staticClass: "m-0" }, [
-                    _vm._v(_vm._s(_vm.klass.name_of_klass)),
+                    _vm._v(_vm._s(_vm.klass.name)),
                   ]),
                 ]),
               ]),

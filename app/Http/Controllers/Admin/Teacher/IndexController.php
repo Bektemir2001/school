@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Teacher;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Teacher\BaseController;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function __invoke()
     {

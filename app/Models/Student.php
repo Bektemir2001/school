@@ -11,4 +11,13 @@ class Student extends Model
 
     protected $table = 'students';
     protected $guarded = false;
+
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function klass(){
+        return $this->belongsTo(Klass::class, 'klass_id', 'id');
+    }
 }

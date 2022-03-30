@@ -43,18 +43,18 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      teacher: null
+      student: null
     };
   },
   mounted: function mounted() {
-    this.getTeacher();
+    this.getStudent();
   },
   methods: {
-    getTeacher: function getTeacher() {
+    getStudent: function getStudent() {
       var _this = this;
 
-      axios.get("/api/admin/teachers/".concat(this.$route.params.id)).then(function (res) {
-        _this.teacher = res.data;
+      axios.get("/api/admin/students/".concat(this.$route.params.id)).then(function (res) {
+        _this.student = res.data;
       });
     }
   }
@@ -146,7 +146,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.teacher
+  return _vm.student
     ? _c("div", { staticClass: "content-wrapper" }, [
         _c("div", { staticClass: "content-header" }, [
           _c("div", { staticClass: "container-fluid" }, [
@@ -154,9 +154,9 @@ var render = function () {
               _c("div", { staticClass: "col-sm-6" }, [
                 _c("h1", { staticClass: "m-0" }, [
                   _vm._v(
-                    _vm._s(_vm.teacher.user.name) +
+                    _vm._s(_vm.student.user.name) +
                       " " +
-                      _vm._s(_vm.teacher.user.surename)
+                      _vm._s(_vm.student.user.surename)
                   ),
                 ]),
               ]),
@@ -175,9 +175,9 @@ var render = function () {
                 },
               },
               [
-                _c("td", [_vm._v("Кайсы предметтен сабак берет: ")]),
+                _c("td", [_vm._v("Канчанчы класс: ")]),
                 _vm._v(" "),
-                _c("td", [_c("b", [_vm._v(_vm._s(_vm.teacher.lesson.name))])]),
+                _c("td", [_c("b", [_vm._v(_vm._s(_vm.student.klass.name))])]),
               ]
             ),
             _vm._v(" "),
@@ -192,7 +192,7 @@ var render = function () {
               [
                 _c("td", [_vm._v("парол: ")]),
                 _vm._v(" "),
-                _c("td", [_c("b", [_vm._v(_vm._s(_vm.teacher.password))])]),
+                _c("td", [_c("b", [_vm._v(_vm._s(_vm.student.password))])]),
               ]
             ),
           ]),

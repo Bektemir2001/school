@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="form-group col-6">
                 <label>Сабактын аты</label>
-                <input type="text" v-model="name_of_klass" class="form-control" >
+                <input type="text" v-model="name" class="form-control" >
             </div>
         </div>
         <!-- /.card-body -->
@@ -22,18 +22,18 @@
         },
         data(){
             return {
-                name_of_klass:null
+                name:null
             }
         },
         mounted() {
         },
         methods:{
             createKlass(){
-                axios.post('/api/admin/klasses', {name_of_klass:this.name_of_klass})
+                axios.post('/api/admin/klasses', {name:this.name})
                 .then(res => {
                     this.$parent.getKlasses()
                     this.$parent.Add = false
-                    this.name_of_klass = null
+                    this.name = null
                 })
             },
             cancelCreate(){

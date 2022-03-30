@@ -51,12 +51,12 @@
                         </router-link>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <router-link :to="{name:'admin.students'}" class="nav-link">
                             <i class="nav-icon fas fa-user-graduate"></i>
                             <p>
                                 Окуучулар
                             </p>
-                        </a>
+                        </router-link>
                     </li>
                     <li>
                         <a href="#" class="nav-link">
