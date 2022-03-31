@@ -6,15 +6,23 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">{{teacher.user.name}} {{teacher.user.surename}}</h1>
+                        <div :class="add ? 'd-none' : ''">
+                            <a class="nav-link text-info" href="#" @click.prevent="addKlass()">Класс кошуу</a>
+                        </div>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
+        <AddKlass :class="add ? '':'d-none'"></AddKlass>
         <div class="col-6">
             <table class="table table-bordered table-hover">
                 <tr data-widget="expandable-table" aria-expanded="true">
                     <td>Кайсы предметтен сабак берет: </td>
                     <td><b>{{teacher.lesson.name}}</b></td>
+                </tr>
+                <tr data-widget="expandable-table" aria-expanded="true">
+                    <td>Кайсы класстарга сабак берет: </td>
+                    <td><b></b></td>
                 </tr>
                 <tr data-widget="expandable-table" aria-expanded="true">
                     <td>парол: </td>
@@ -26,14 +34,16 @@
 </template>
 
 <script>
-
+    import AddKlass from "./AddKlass";
     export default {
         name:"Show",
         components: {
+            AddKlass
         },
         data(){
             return {
-                teacher:null
+                teacher:null,
+                add:false
             }
         },
         mounted() {
@@ -45,6 +55,9 @@
                 .then(res => {
                     this.teacher = res.data
                 })
+            },
+            addKlass(){
+                this.add = true
             }
         }
     }

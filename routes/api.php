@@ -43,6 +43,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
         Route::get('/{teacher}', 'ShowController');
         Route::patch('/{teacher}/update', 'UpdateController');
         Route::delete('/{teacher}', 'DeleteController');
+        Route::get('/addedKlasses/{teacher}', 'GetKlassesController');
+        Route::post('/{teacher}', 'AddKlassesController');
     });
     Route::group(['namespace' => 'Student', 'prefix' => 'students'], function (){
         Route::get('/', 'IndexController');
