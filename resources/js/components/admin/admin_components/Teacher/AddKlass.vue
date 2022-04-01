@@ -1,13 +1,13 @@
 <template>
     <div v-if="klasses" class="d-grid gap-2 col-11 mx-auto">
         <div v-for="klass in klasses" class="form-check">
-            <input class="form-check-input" type="checkbox" checked="true" @click="clickChoose(klass.id)" value="" id="flexCheckDefault">
+            <input @click="clickChoose(klass.id)" class="form-check-input" type="checkbox" :checked="klass.teachers_id.includes(id)" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
                 <b>{{klass.name}}</b>
             </label>
         </div>
         <tr data-widget="expandable-table" aria-expanded="true">
-            <td class="gap-2 col-6 mx-auto"><button type="button" @click.prevent="submitClick()" class="btn btn-primary btn-sm">Small button</button></td>
+            <td class="gap-2 col-6 mx-auto"><button type="button" @click.prevent="submitClick()" class="btn btn-primary btn-sm">  катто  </button></td>
             <td class="gap-2 col-6 mx-auto"><button type="button" @click.prevent="cancelClick()" class="btn btn-secondary btn-sm">жокко чыгаруу</button></td>
         </tr>
 
@@ -38,7 +38,7 @@
                 this.$parent.add = false
             },
             getKlasses(){
-                axios.get('/api/admin/klasses')
+                axios.get('/api/admin/klasses/forTeacher/get')
                 .then(res => {
                     this.klasses = res.data
                 })
@@ -46,7 +46,6 @@
             getAddedKlasses(){
                 axios.get(`/api/admin/teachers/addedKlasses/${this.id}`)
                     .then(res => {
-                        console.log(res.data)
                         selectedKlasses = res.data
                     })
             },
@@ -63,7 +62,7 @@
             submitClick(){
                 axios.post(`/api/admin/teachers/${this.id}`, {klasses:selectedKlasses})
                 .then(res => {
-                    console.log(res.data)
+                    this.$parent.getTeacher()
                     this.$parent.add = false
                 })
             }

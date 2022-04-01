@@ -55,13 +55,12 @@ var selectedKlasses = [];
     getKlasses: function getKlasses() {
       var _this = this;
 
-      axios.get('/api/admin/klasses').then(function (res) {
+      axios.get('/api/admin/klasses/forTeacher/get').then(function (res) {
         _this.klasses = res.data;
       });
     },
     getAddedKlasses: function getAddedKlasses() {
       axios.get("/api/admin/teachers/addedKlasses/".concat(this.id)).then(function (res) {
-        console.log(res.data);
         selectedKlasses = res.data;
       });
     },
@@ -98,7 +97,8 @@ var selectedKlasses = [];
       axios.post("/api/admin/teachers/".concat(this.id), {
         klasses: selectedKlasses
       }).then(function (res) {
-        console.log(res.data);
+        _this2.$parent.getTeacher();
+
         _this2.$parent.add = false;
       });
     }
@@ -346,12 +346,8 @@ var render = function () {
             return _c("div", { staticClass: "form-check" }, [
               _c("input", {
                 staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  checked: "true",
-                  value: "",
-                  id: "flexCheckDefault",
-                },
+                attrs: { type: "checkbox", id: "flexCheckDefault" },
+                domProps: { checked: klass.teachers_id.includes(_vm.id) },
                 on: {
                   click: function ($event) {
                     return _vm.clickChoose(klass.id)
@@ -392,7 +388,7 @@ var render = function () {
                       },
                     },
                   },
-                  [_vm._v("Small button")]
+                  [_vm._v("  катто  ")]
                 ),
               ]),
               _vm._v(" "),
@@ -471,7 +467,7 @@ var render = function () {
                           },
                         },
                       },
-                      [_vm._v("Класс кошуу")]
+                      [_c("b", [_vm._v("Класстарды алмаштыруу")])]
                     ),
                   ]),
                 ]),
@@ -481,7 +477,7 @@ var render = function () {
           _vm._v(" "),
           _c("AddKlass", { class: _vm.add ? "" : "d-none" }),
           _vm._v(" "),
-          _c("div", { staticClass: "col-6" }, [
+          _c("div", { staticClass: "col-12" }, [
             _c("table", { staticClass: "table table-bordered table-hover" }, [
               _c(
                 "tr",
@@ -500,7 +496,23 @@ var render = function () {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(0),
+              _c(
+                "tr",
+                {
+                  attrs: {
+                    "data-widget": "expandable-table",
+                    "aria-expanded": "true",
+                  },
+                },
+                [
+                  _c("td", [_vm._v("Кайсы класстарга сабак берет: ")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.teacher.klasses, function (klass) {
+                    return _c("td", [_c("b", [_vm._v(_vm._s(klass.name))])])
+                  }),
+                ],
+                2
+              ),
               _vm._v(" "),
               _c(
                 "tr",
@@ -523,22 +535,7 @@ var render = function () {
       )
     : _vm._e()
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "tr",
-      { attrs: { "data-widget": "expandable-table", "aria-expanded": "true" } },
-      [
-        _c("td", [_vm._v("Кайсы класстарга сабак берет: ")]),
-        _vm._v(" "),
-        _c("td", [_c("b")]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

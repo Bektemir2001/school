@@ -11,4 +11,7 @@ class Klass extends Model
 
     protected $table = 'klasses';
     protected $guarded = false;
+    public function teacher(){
+        return $this->belongsToMany(Teacher::class, 'teacher_klasses', 'klass_id', 'teacher_id', 'id');
+    }
 }

@@ -12,6 +12,7 @@ class ShowController extends BaseController
     {
         $teacher['user'] = $teacher->user;
         $teacher['lesson'] = $teacher->lesson;
+        $teacher['klasses'] = $teacher->klass;
         return $teacher;
     }
 }
