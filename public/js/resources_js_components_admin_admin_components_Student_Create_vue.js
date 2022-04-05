@@ -93,7 +93,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/admin/klasses').then(function (res) {
-        _this.klasses = res.data;
+        _this.klasses = res.data.data;
       });
     }
   }

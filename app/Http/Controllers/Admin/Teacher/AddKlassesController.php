@@ -12,6 +12,7 @@ class AddKlassesController extends BaseController
     public function __invoke(AddKlassesRequest $request, Teacher $teacher)
     {
         $data = $request->validated();
+
         $data = $data['klasses'];
         $teacher->klass()->sync($data);
         return $data;

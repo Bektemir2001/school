@@ -44,7 +44,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/admin/lessons/".concat(this.$route.params.id)).then(function (res) {
-        _this.lesson = res.data;
+        _this.lesson = res.data.data;
       });
     }
   }

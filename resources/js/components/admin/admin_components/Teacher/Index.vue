@@ -98,7 +98,7 @@
             getTeachers(){
                 axios.get('/api/admin/teachers')
                     .then(res =>{
-                        this.teachers = res.data
+                        this.teachers = res.data.data
                     })
             },
         },

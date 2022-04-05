@@ -17,6 +17,7 @@
                 .then(res => {
                     router.push({name:'admin.lessons'})
                 })
+                console.log(this.$route.params.id)
             }
         }
     }

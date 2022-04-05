@@ -177,7 +177,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/admin/lessons').then(function (res) {
-        _this.lessons = res.data;
+        _this.lessons = res.data.data;
       });
     },
     clickAdd: function clickAdd() {

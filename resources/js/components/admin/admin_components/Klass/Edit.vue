@@ -52,7 +52,7 @@
             getKlass(){
                 axios.get(`/api/admin/klasses/${this.$route.params.id}`)
                     .then(res => {
-                        this.klass = res.data
+                        this.klass = res.data.data
                     })
             },
             updateKlass(){

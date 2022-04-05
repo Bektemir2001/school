@@ -98,7 +98,7 @@
             getStudents(){
                 axios.get('/api/admin/students')
                     .then(res =>{
-                        this.students = res.data
+                        this.students = res.data.data
                     })
             },
         },

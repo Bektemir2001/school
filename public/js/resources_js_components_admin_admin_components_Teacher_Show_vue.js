@@ -32,16 +32,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
 // create array to store temporary ids
-var selectedKlasses = [];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AddKlass",
   components: {},
   data: function data() {
     return {
       klasses: null,
-      id: this.$parent.teacher.id
+      id: this.$parent.teacher.id,
+      selectedKlasses: null
     };
   },
   mounted: function mounted() {
@@ -49,25 +48,24 @@ var selectedKlasses = [];
     this.getAddedKlasses();
   },
   methods: {
-    cancelClick: function cancelClick() {
-      this.$parent.add = false;
-    },
     getKlasses: function getKlasses() {
       var _this = this;
 
-      axios.get('/api/admin/klasses/forTeacher/get').then(function (res) {
-        _this.klasses = res.data;
+      axios.get('/api/admin/klasses/').then(function (res) {
+        _this.klasses = res.data.data;
       });
     },
     getAddedKlasses: function getAddedKlasses() {
+      var _this2 = this;
+
       axios.get("/api/admin/teachers/addedKlasses/".concat(this.id)).then(function (res) {
-        selectedKlasses = res.data;
+        _this2.selectedKlasses = res.data;
       });
     },
     clickChoose: function clickChoose(id) {
       var b = true;
 
-      var _iterator = _createForOfIteratorHelper(selectedKlasses),
+      var _iterator = _createForOfIteratorHelper(this.selectedKlasses),
           _step;
 
       try {
@@ -75,7 +73,7 @@ var selectedKlasses = [];
           var item = _step.value;
 
           if (id === item) {
-            selectedKlasses = selectedKlasses.filter(function (f) {
+            this.selectedKlasses = this.selectedKlasses.filter(function (f) {
               return f !== id;
             });
             b = false;
@@ -88,19 +86,23 @@ var selectedKlasses = [];
       }
 
       if (b) {
-        selectedKlasses.push(id);
+        this.selectedKlasses.push(id);
       }
     },
     submitClick: function submitClick() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.post("/api/admin/teachers/".concat(this.id), {
-        klasses: selectedKlasses
+        klasses: this.selectedKlasses
       }).then(function (res) {
-        _this2.$parent.getTeacher();
+        _this3.$parent.getTeacher();
 
-        _this2.$parent.add = false;
+        _this3.$parent.add = false;
       });
+    },
+    cancelClick: function cancelClick() {
+      this.$parent.add = false;
+      this.$parent.getTeacher();
     }
   }
 });
@@ -337,7 +339,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.klasses
+  return _vm.klasses && _vm.selectedKlasses
     ? _c(
         "div",
         { staticClass: "d-grid gap-2 col-11 mx-auto" },
@@ -347,7 +349,7 @@ var render = function () {
               _c("input", {
                 staticClass: "form-check-input",
                 attrs: { type: "checkbox", id: "flexCheckDefault" },
-                domProps: { checked: klass.teachers_id.includes(_vm.id) },
+                domProps: { checked: _vm.selectedKlasses.includes(klass.id) },
                 on: {
                   click: function ($event) {
                     return _vm.clickChoose(klass.id)

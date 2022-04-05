@@ -30,6 +30,7 @@ __webpack_require__.r(__webpack_exports__);
           name: 'admin.lessons'
         });
       });
+      console.log(this.$route.params.id);
     }
   }
 });

@@ -59,12 +59,12 @@
                         </router-link>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <router-link :to="{name:'admin.plans'}" class="nav-link">
                             <i class="nav-icon fas fa-tasks"></i>
                             <p>
                                 Сабак пландары
                             </p>
-                        </a>
+                        </router-link>
                     </li>
                 </ul>
             </nav>

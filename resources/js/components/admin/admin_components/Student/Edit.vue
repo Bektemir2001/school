@@ -72,13 +72,13 @@
             getStudent(){
                 axios.get(`/api/admin/students/${this.$route.params.id}`)
                     .then(res => {
-                        this.student = res.data
+                        this.student = res.data.data
                     })
             },
             getKlasses(){
                 axios.get('/api/admin/klasses/')
                     .then(res => {
-                        this.klasses = res.data
+                        this.klasses = res.data.data
                     })
             },
             updateStudent(){

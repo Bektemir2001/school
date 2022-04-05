@@ -104,7 +104,7 @@
             getKlasses(){
                 axios.get('/api/admin/klasses')
                     .then(res =>{
-                        this.klasses = res.data
+                        this.klasses = res.data.data
                     })
             },
             clickAdd(){

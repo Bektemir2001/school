@@ -5552,6 +5552,37 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
       return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Student_Delete_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Student/Delete */ "./resources/js/components/admin/admin_components/Student/Delete.vue"));
     },
     name: 'admin.student.delete'
+  }, //    Plan
+  {
+    path: '/admin/plans',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Plan_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Plan/Index */ "./resources/js/components/admin/admin_components/Plan/Index.vue"));
+    },
+    name: 'admin.plans'
+  }, {
+    path: '/admin/plans/create',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Plan_Create_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Plan/Create */ "./resources/js/components/admin/admin_components/Plan/Create.vue"));
+    },
+    name: 'admin.plans.create'
+  }, {
+    path: '/admin/plans/:id',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Plan_Show_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Plan/Show */ "./resources/js/components/admin/admin_components/Plan/Show.vue"));
+    },
+    name: 'admin.plans.show'
+  }, {
+    path: '/admin/plan/:id/edit',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Plan_Edit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Plan/Edit */ "./resources/js/components/admin/admin_components/Plan/Edit.vue"));
+    },
+    name: 'admin.plan.edit'
+  }, {
+    path: '/admin/plan/:id/delete',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_components_admin_admin_components_Plan_Delete_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/admin/admin_components/Plan/Delete */ "./resources/js/components/admin/admin_components/Plan/Delete.vue"));
+    },
+    name: 'admin.plan.delete'
   }]
 }));
 
@@ -28236,7 +28267,28 @@ var render = function () {
                     1
                   ),
                   _vm._v(" "),
-                  _vm._m(2),
+                  _c(
+                    "li",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: "admin.plans" } },
+                        },
+                        [
+                          _c("i", { staticClass: "nav-icon fas fa-tasks" }),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "\n                            Сабак пландары\n                        "
+                            ),
+                          ]),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
                 ]
               ),
             ]),
@@ -28268,22 +28320,6 @@ var staticRenderFns = [
       _c("div", { staticClass: "info" }, [
         _c("a", { staticClass: "d-block", attrs: { href: "#" } }, [
           _vm._v("Бектемир Кумарбай уулу"),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-        _c("i", { staticClass: "nav-icon fas fa-tasks" }),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n                            Сабак пландары\n                        "
-          ),
         ]),
       ]),
     ])
@@ -43725,7 +43761,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_admin_admin_components_MainComponent_vue":1,"resources_js_components_admin_admin_components_lesson_Index_vue":1,"resources_js_components_admin_admin_components_lesson_Show_vue":1,"resources_js_components_admin_admin_components_lesson_Edit_vue":1,"resources_js_components_admin_admin_components_lesson_Delete_vue":1,"resources_js_components_admin_admin_components_Klass_Index_vue":1,"resources_js_components_admin_admin_components_Klass_Show_vue":1,"resources_js_components_admin_admin_components_Klass_Edit_vue":1,"resources_js_components_admin_admin_components_Klass_Delete_vue":1,"resources_js_components_admin_admin_components_Teacher_Index_vue":1,"resources_js_components_admin_admin_components_Teacher_Create_vue":1,"resources_js_components_admin_admin_components_Teacher_Show_vue":1,"resources_js_components_admin_admin_components_Teacher_Edit_vue":1,"resources_js_components_admin_admin_components_Teacher_Delete_vue":1,"resources_js_components_admin_admin_components_Student_Index_vue":1,"resources_js_components_admin_admin_components_Student_Create_vue":1,"resources_js_components_admin_admin_components_Student_Show_vue":1,"resources_js_components_admin_admin_components_Student_Edit_vue":1,"resources_js_components_admin_admin_components_Student_Delete_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_admin_admin_components_MainComponent_vue":1,"resources_js_components_admin_admin_components_lesson_Index_vue":1,"resources_js_components_admin_admin_components_lesson_Show_vue":1,"resources_js_components_admin_admin_components_lesson_Edit_vue":1,"resources_js_components_admin_admin_components_lesson_Delete_vue":1,"resources_js_components_admin_admin_components_Klass_Index_vue":1,"resources_js_components_admin_admin_components_Klass_Show_vue":1,"resources_js_components_admin_admin_components_Klass_Edit_vue":1,"resources_js_components_admin_admin_components_Klass_Delete_vue":1,"resources_js_components_admin_admin_components_Teacher_Index_vue":1,"resources_js_components_admin_admin_components_Teacher_Create_vue":1,"resources_js_components_admin_admin_components_Teacher_Show_vue":1,"resources_js_components_admin_admin_components_Teacher_Edit_vue":1,"resources_js_components_admin_admin_components_Teacher_Delete_vue":1,"resources_js_components_admin_admin_components_Student_Index_vue":1,"resources_js_components_admin_admin_components_Student_Create_vue":1,"resources_js_components_admin_admin_components_Student_Show_vue":1,"resources_js_components_admin_admin_components_Student_Edit_vue":1,"resources_js_components_admin_admin_components_Student_Delete_vue":1,"resources_js_components_admin_admin_components_Plan_Index_vue":1,"resources_js_components_admin_admin_components_Plan_Create_vue":1,"resources_js_components_admin_admin_components_Plan_Show_vue":1,"resources_js_components_admin_admin_components_Plan_Edit_vue":1,"resources_js_components_admin_admin_components_Plan_Delete_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

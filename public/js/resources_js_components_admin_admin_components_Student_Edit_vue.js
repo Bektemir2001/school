@@ -85,14 +85,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/admin/students/".concat(this.$route.params.id)).then(function (res) {
-        _this.student = res.data;
+        _this.student = res.data.data;
       });
     },
     getKlasses: function getKlasses() {
       var _this2 = this;
 
       axios.get('/api/admin/klasses/').then(function (res) {
-        _this2.klasses = res.data;
+        _this2.klasses = res.data.data;
       });
     },
     updateStudent: function updateStudent() {

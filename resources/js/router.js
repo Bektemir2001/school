@@ -109,5 +109,33 @@ export default new VueRouter({
             component: () => import('./components/admin/admin_components/Student/Delete'),
             name:'admin.student.delete'
         },
+
+    //    Plan
+        {
+            path:'/admin/plans',
+            component: () => import('./components/admin/admin_components/Plan/Index'),
+            name:'admin.plans'
+        },
+        {
+            path:'/admin/plans/create',
+            component: () => import('./components/admin/admin_components/Plan/Create'),
+            name:'admin.plans.create'
+        },
+        {
+            path:'/admin/plans/:id',
+            component: () => import('./components/admin/admin_components/Plan/Show'),
+            name:'admin.plans.show'
+        },
+        {
+            path:'/admin/plan/:id/edit',
+            component: () => import('./components/admin/admin_components/Plan/Edit'),
+            name:'admin.plan.edit'
+        },
+        {
+            path:'/admin/plan/:id/delete',
+            component: () => import('./components/admin/admin_components/Plan/Delete'),
+            name:'admin.plan.delete'
+        },
+
     ]
 })

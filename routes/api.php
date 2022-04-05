@@ -35,7 +35,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
         Route::get('/{klass}', 'ShowController');
         Route::patch('/{klass}', 'UpdateController');
         Route::delete('/{klass}', 'DeleteController');
-        Route::get('/forTeacher/get', 'GetForTeacherController');
     });
 
     Route::group(['namespace' => 'Teacher', 'prefix' => 'teachers'], function (){
@@ -53,5 +52,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
         Route::get('/{student}', 'ShowController');
         Route::patch('/{student}/update', 'UpdateController');
         Route::delete('/{student}', 'DeleteController');
+    });
+    Route::group(['namespace' => 'Plan', 'prefix' => 'plans'], function (){
+        Route::get('/', 'IndexController');
+        Route::post('/', 'StoreController');
+        Route::get('/{plan}', 'ShowController');
+        Route::patch('/{plan}/update', 'UpdateController');
+        Route::delete('/{plan}', 'DeleteController');
     });
 });

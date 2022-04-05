@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/admin/teachers').then(function (res) {
-        _this.teachers = res.data;
+        _this.teachers = res.data.data;
       });
     }
   },

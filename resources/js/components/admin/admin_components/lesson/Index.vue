@@ -106,7 +106,7 @@
             getLessons(){
                 axios.get('/api/admin/lessons')
                     .then(res =>{
-                        this.lessons = res.data
+                        this.lessons = res.data.data
                     })
             },
             clickAdd(){

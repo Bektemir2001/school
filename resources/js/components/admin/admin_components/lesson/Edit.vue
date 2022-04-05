@@ -52,7 +52,7 @@
             getLesson(){
                 axios.get(`/api/admin/lessons/${this.$route.params.id}`)
                     .then(res => {
-                        this.lesson = res.data
+                        this.lesson = res.data.data
                     })
             },
             updateLesson(){
